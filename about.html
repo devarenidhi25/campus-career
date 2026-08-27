@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us & DevOps Architecture | CampusCareer</title>
+  <meta name="description" content="Learn about CampusCareer - the college student career platform - and our academic DevOps deployment pipeline built with Terraform, AWS, Ansible, Docker, and Nginx.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo" aria-label="CampusCareer Homepage">
+        <div class="brand-logo-icon">🎓</div>
+        <span>Campus<span class="brand-highlight">Career</span></span>
+      </a>
+
+      <nav class="nav-menu" id="navMenu" aria-label="Main Navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="opportunities.html" class="nav-link">Opportunities</a>
+        <a href="opportunities.html?category=internships" class="nav-link">Internships</a>
+        <a href="opportunities.html?category=jobs" class="nav-link">Jobs</a>
+        <a href="opportunities.html?category=hackathons" class="nav-link">Hackathons</a>
+        <a href="resources.html" class="nav-link">Resources</a>
+        <a href="about.html" class="nav-link active">About</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="opportunities.html?saved=true" class="btn btn-outline btn-sm" aria-label="Saved Bookmarks">
+          ⭐ Bookmarks <span class="saved-count-badge" id="savedCountBadge" style="display:none;">0</span>
+        </a>
+        <a href="dashboard.html" class="btn btn-primary btn-sm">
+          <span>Student Portal</span> ➔
+        </a>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle Navigation Menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- About Hero -->
+    <section class="section" style="background: radial-gradient(circle at 50% 0%, rgba(108, 92, 231, 0.1) 0%, transparent 70%); text-align: center;">
+      <div class="container">
+        <span class="section-tag">Built For Students, By Students</span>
+        <h1 class="section-title" style="font-size: 3rem;">Empowering College Careers</h1>
+        <p class="section-subtitle" style="max-width: 680px; margin: 0 auto 30px;">
+          CampusCareer brings student-focused internships, jobs, hackathons, and career guidance together in one modern, colorful platform.
+        </p>
+      </div>
+    </section>
+
+    <!-- Problem & Solution Section -->
+    <section class="section" style="background: #FFFFFF; border-y: 1px solid var(--border-color);">
+      <div class="container">
+        <div class="grid-2" style="gap: 50px; align-items: center;">
+          
+          <div class="card" style="border-left: 5px solid var(--accent-pink); background: #FFF5F8;">
+            <div style="font-size: 2.5rem; margin-bottom: 12px;">💔</div>
+            <h2 style="font-size: 1.6rem; color: #D63031; margin-bottom: 12px;">The Problem</h2>
+            <p style="color: var(--text-body); line-height: 1.7;">
+              College students waste countless hours jumping between fragmented job portals, cluttered WhatsApp groups, outdated college noticeboards, and obscure hackathon sites. Finding legitimate student internships with transparent stipends and clear eligibility criteria has historically been exhausting.
+            </p>
+          </div>
+
+          <div class="card" style="border-left: 5px solid var(--accent-purple); background: #F8F7FF;">
+            <div style="font-size: 2.5rem; margin-bottom: 12px;">✨</div>
+            <h2 style="font-size: 1.6rem; color: var(--accent-purple); margin-bottom: 12px;">The CampusCareer Solution</h2>
+            <p style="color: var(--text-body); line-height: 1.7;">
+              CampusCareer unifies student opportunities under one vibrant umbrella. Students can instantly filter roles by work mode, stipend, or skill tags, bookmark roles locally, track application pipeline stages, optimize their resumes with ATS scoring, and explore guided skill roadmaps.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Target Audience & Platform Benefits -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Core Stakeholders</span>
+          <h2 class="section-title">Who CampusCareer Helps</h2>
+        </div>
+
+        <div class="grid-3">
+          <div class="card reveal-on-scroll">
+            <div style="font-size: 2.2rem; margin-bottom: 14px;">🎓</div>
+            <h3 style="font-size: 1.25rem; margin-bottom: 8px;">College Students</h3>
+            <p style="color: var(--text-body); font-size: 0.92rem;">
+              Discover paid internships, full-time engineering roles, hackathons, ATS resume scoring, and skill roadmaps tailored to 1st–4th year undergraduates.
+            </p>
+          </div>
+
+          <div class="card reveal-on-scroll">
+            <div style="font-size: 2.2rem; margin-bottom: 14px;">🏢</div>
+            <h3 style="font-size: 1.25rem; margin-bottom: 8px;">Tech Recruiters & Startups</h3>
+            <p style="color: var(--text-body); font-size: 0.92rem;">
+              Connect directly with verified student talent across computer science, DevOps, data analytics, and UI/UX design disciplines.
+            </p>
+          </div>
+
+          <div class="card reveal-on-scroll">
+            <div style="font-size: 2.2rem; margin-bottom: 14px;">🏛️</div>
+            <h3 style="font-size: 1.25rem; margin-bottom: 8px;">College Placement Cells</h3>
+            <p style="color: var(--text-body); font-size: 0.92rem;">
+              Streamline campus drives, track student application pipelines, and share curated career resources effortlessly.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DevOps Deployment Pipeline Section (Academic Requirement) -->
+    <section class="section" id="devops" style="background: #0F172A; color: #FFFFFF;">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag" style="background: rgba(162, 155, 254, 0.2); color: #A29BFE;">DevOps Engineering Project</span>
+          <h2 class="section-title" style="color: #FFFFFF;">Academic DevOps Deployment Architecture</h2>
+          <p class="section-subtitle" style="color: #94A3B8;">
+            CampusCareer is built as a static frontend application, designed to showcase automated cloud infrastructure provisioning, server configuration, and container deployment.
+          </p>
+        </div>
+
+        <!-- Pipeline Workflow Cards -->
+        <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 14px; margin-bottom: 40px;" class="pipeline-devops-grid">
+          
+          <div style="background: #1E293B; border-radius: var(--radius-md); padding: 18px; text-align: center; border: 1px solid #334155;">
+            <div style="font-size: 1.8rem; margin-bottom: 6px;">💻</div>
+            <div style="font-weight: 700; font-size: 0.88rem; color: #FFF;">1. Developer</div>
+            <div style="font-size: 0.75rem; color: #94A3B8;">HTML, CSS, JS</div>
+          </div>
+
+          <div style="background: #1E293B; border-radius: var(--radius-md); padding: 18px; text-align: center; border: 1px solid #334155;">
+            <div style="font-size: 1.8rem; margin-bottom: 6px;">🐙</div>
+            <div style="font-weight: 700; font-size: 0.88rem; color: #FFF;">2. GitHub</div>
+            <div style="font-size: 0.75rem; color: #94A3B8;">Git Repository</div>
+          </div>
+
+          <div style="background: #1E293B; border-radius: var(--radius-md); padding: 18px; text-align: center; border: 1px solid #334155;">
+            <div style="font-size: 1.8rem; margin-bottom: 6px;">🛠️</div>
+            <div style="font-weight: 700; font-size: 0.88rem; color: #FFF;">3. Terraform</div>
+            <div style="font-size: 0.75rem; color: #94A3B8;">Infrastructure as Code</div>
+          </div>
+
+          <div style="background: #1E293B; border-radius: var(--radius-md); padding: 18px; text-align: center; border: 1px solid #334155;">
+            <div style="font-size: 1.8rem; margin-bottom: 6px;">☁️</div>
+            <div style="font-weight: 700; font-size: 0.88rem; color: #FFF;">4. AWS EC2</div>
+            <div style="font-size: 0.75rem; color: #94A3B8;">Cloud Linux VM</div>
+          </div>
+
+          <div style="background: #1E293B; border-radius: var(--radius-md); padding: 18px; text-align: center; border: 1px solid #334155;">
+            <div style="font-size: 1.8rem; margin-bottom: 6px;">⚙️</div>
+            <div style="font-weight: 700; font-size: 0.88rem; color: #FFF;">5. Ansible</div>
+            <div style="font-size: 0.75rem; color: #94A3B8;">Config & Docker</div>
+          </div>
+
+          <div style="background: #1E293B; border-radius: var(--radius-md); padding: 18px; text-align: center; border: 1px solid #334155;">
+            <div style="font-size: 1.8rem; margin-bottom: 6px;">🐳</div>
+            <div style="font-weight: 700; font-size: 0.88rem; color: #FFF;">6. Docker / Nginx</div>
+            <div style="font-size: 0.75rem; color: #94A3B8;">Static Container</div>
+          </div>
+
+        </div>
+
+        <div style="background: #1E293B; border-radius: var(--radius-lg); padding: 32px; border: 1px solid #334155;">
+          <h3 style="color: #FFF; font-size: 1.3rem; margin-bottom: 14px;">Deployment Pipeline Breakdown</h3>
+          <ul style="color: #CBD5E1; padding-left: 20px; list-style: disc; line-height: 1.8; font-size: 0.95rem;">
+            <li><strong>Frontend Application:</strong> Pure static website constructed using HTML5, CSS3, and Vanilla JS (ES6+). Zero heavy frameworks or backend dependencies.</li>
+            <li><strong>Terraform Provisioning:</strong> Provisions an AWS EC2 instance (`t3.micro`), Security Groups allowing HTTP (Port 80) & SSH (Port 22), VPC, and Internet Gateway.</li>
+            <li><strong>Ansible Automation:</strong> Executes automated playbooks to update system packages, install Docker Engine, and pull/run the Nginx container automatically.</li>
+            <li><strong>Docker & Nginx Containerization:</strong> The provided <code>Dockerfile</code> packs the HTML/CSS/JS source into an <code>nginx:alpine</code> container, serving the website with low latency and minimal resource overhead.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="brand-logo" style="color:#FFF;">
+            <div class="brand-logo-icon">🎓</div>
+            <span>Campus<span class="brand-highlight">Career</span></span>
+          </a>
+          <p>The modern, colorful career platform designed for college students to discover internships, jobs, hackathons, and skill guides.</p>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Platform</h4>
+          <ul class="footer-links">
+            <li><a href="opportunities.html">All Opportunities</a></li>
+            <li><a href="opportunities.html?category=internships">Internships</a></li>
+            <li><a href="opportunities.html?category=jobs">Full-Time Jobs</a></li>
+            <li><a href="opportunities.html?category=hackathons">Hackathons</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Resources</h4>
+          <ul class="footer-links">
+            <li><a href="resources.html">Interview Guides</a></li>
+            <li><a href="resources.html">ATS Resume Tips</a></li>
+            <li><a href="resources.html#skillsExplorer">Skill Roadmaps</a></li>
+            <li><a href="dashboard.html">Student Dashboard</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">About</h4>
+          <ul class="footer-links">
+            <li><a href="about.html">Our Mission</a></li>
+            <li><a href="about.html#devops">DevOps Architecture</a></li>
+            <li><a href="about.html">Contact Support</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>Built for students, by students. © 2026 CampusCareer.</div>
+        <div class="devops-badge">
+          <span>⚙️ Containerized via Docker + Nginx</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

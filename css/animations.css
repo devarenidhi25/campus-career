@@ -1,0 +1,83 @@
+/* ==========================================================================
+   CampusCareer - Keyframe Animations & Micro-Interactions
+   ========================================================================== */
+
+/* Floating Hero Decorative Widgets */
+@keyframes floatSlow {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(1deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+}
+
+/* Scroll Reveal Utility Classes */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-on-scroll.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Pulse Glow for Featured Badges */
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 0 0 rgba(108, 92, 231, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(108, 92, 231, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(108, 92, 231, 0);
+  }
+}
+
+.pulse-badge {
+  animation: pulseGlow 2s infinite;
+}
+
+/* Bookmark Pop Animation */
+@keyframes starPop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.35) rotate(15deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+
+.card-bookmark-btn.active .bookmark-icon {
+  animation: starPop 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Shimmer Loading Effect (for image/card placeholders) */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.shimmer {
+  background: linear-gradient(90deg, #F1F5F9 25%, #E2E8F0 50%, #F1F5F9 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Subtle Hover Zoom for Avatars & Icons */
+.category-icon-box, .company-logo {
+  transition: transform 0.3s ease;
+}
+
+.category-card:hover .category-icon-box,
+.opportunity-card:hover .company-logo {
+  transform: scale(1.1) rotate(-3deg);
+}

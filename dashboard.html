@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Dashboard | CampusCareer</title>
+  <meta name="description" content="CampusCareer Student Dashboard - Track active job applications, manage saved bookmarks, optimize your resume, and update your tech skills.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo" aria-label="CampusCareer Homepage">
+        <div class="brand-logo-icon">🎓</div>
+        <span>Campus<span class="brand-highlight">Career</span></span>
+      </a>
+
+      <nav class="nav-menu" id="navMenu" aria-label="Main Navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="opportunities.html" class="nav-link">Opportunities</a>
+        <a href="opportunities.html?category=internships" class="nav-link">Internships</a>
+        <a href="opportunities.html?category=jobs" class="nav-link">Jobs</a>
+        <a href="opportunities.html?category=hackathons" class="nav-link">Hackathons</a>
+        <a href="resources.html" class="nav-link">Resources</a>
+        <a href="about.html" class="nav-link">About</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="opportunities.html?saved=true" class="btn btn-outline btn-sm" aria-label="Saved Bookmarks">
+          ⭐ Bookmarks <span class="saved-count-badge" id="savedCountBadge" style="display:none;">0</span>
+        </a>
+        <a href="dashboard.html" class="btn btn-primary btn-sm">
+          <span>Student Portal</span> ➔
+        </a>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle Navigation Menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="section" id="dashboardRoot">
+    <div class="container">
+      
+      <!-- Student Profile Header Banner -->
+      <div class="dashboard-header-card">
+        <div class="dash-profile-info">
+          <div class="dash-avatar-large" id="dashAvatarInitials">AS</div>
+          <div>
+            <span class="badge" style="background: rgba(255,255,255,0.2); color:#FFF; margin-bottom: 6px;">Verified Student Profile</span>
+            <h1 class="dash-name" id="dashStudentName">Aarav Sharma</h1>
+            <div class="dash-subtext">
+              <span id="dashStudentDegree">B.Tech in Computer Science</span> • 
+              <span id="dashStudentCollege">National Institute of Technology</span> • 
+              <span id="dashStudentYear">3rd Year</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="profile-gauge-box">
+          <div style="display: flex; justify-content: space-between; font-size: 0.85rem; font-weight: 700;">
+            <span>Profile Strength</span>
+            <span id="profileGaugeText">85% Completed</span>
+          </div>
+          <div class="gauge-bar-track">
+            <div class="gauge-bar-fill" id="profileGaugeFill" style="width: 85%;"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stats Counters Grid -->
+      <div class="grid-4" style="margin-bottom: 40px;">
+        <div class="card" style="text-align: center; border-left: 4px solid var(--accent-purple);">
+          <div style="font-size: 2.2rem; font-weight: 800; font-family: var(--font-heading); color: var(--accent-purple);" id="statAppliedCount">4</div>
+          <div style="font-weight: 600; color: var(--text-muted); font-size: 0.9rem;">Applications Submitted</div>
+        </div>
+
+        <div class="card" style="text-align: center; border-left: 4px solid #D69E2E;">
+          <div style="font-size: 2.2rem; font-weight: 800; font-family: var(--font-heading); color: #D69E2E;" id="statShortlistedCount">2</div>
+          <div style="font-weight: 600; color: var(--text-muted); font-size: 0.9rem;">Shortlisted Roles</div>
+        </div>
+
+        <div class="card" style="text-align: center; border-left: 4px solid var(--accent-pink);">
+          <div style="font-size: 2.2rem; font-weight: 800; font-family: var(--font-heading); color: var(--accent-pink);" id="statSavedCount">0</div>
+          <div style="font-weight: 600; color: var(--text-muted); font-size: 0.9rem;">Saved Opportunities</div>
+        </div>
+
+        <div class="card" style="text-align: center; border-left: 4px solid var(--accent-green);">
+          <div style="font-size: 2.2rem; font-weight: 800; font-family: var(--font-heading); color: var(--accent-green);" id="statDeadlinesCount">2</div>
+          <div style="font-weight: 600; color: var(--text-muted); font-size: 0.9rem;">Upcoming Deadlines</div>
+        </div>
+      </div>
+
+      <!-- Main Dashboard Grid Layout: Left Pipeline Tracker, Right Saved & Resume -->
+      <div class="grid-2" style="grid-template-columns: 1.4fr 0.8fr; gap: 32px; align-items: start;">
+        
+        <!-- Left Column: Application Tracker -->
+        <section>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+            <h2 class="section-title" style="font-size: 1.5rem; margin-bottom: 0;">Application Stage Tracker</h2>
+            <span class="badge badge-type">Live Updates</span>
+          </div>
+
+          <div id="applicationsContainer">
+            <!-- Dynamic Application Cards (Applied -> Shortlisted -> Interview -> Selected) -->
+          </div>
+        </section>
+
+        <!-- Right Column: Skills, Saved Roles & Resume Center -->
+        <aside>
+          <!-- Student Tech Skills Widget -->
+          <div class="card" style="margin-bottom: 28px;">
+            <h3 style="font-size: 1.2rem; margin-bottom: 12px;">My Technical Skills</h3>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 14px;">Skills on your profile match relevant job postings.</p>
+
+            <div id="studentSkillsContainer" class="card-skills">
+              <!-- Rendered via JS -->
+            </div>
+
+            <div class="add-skill-box">
+              <input type="text" id="newSkillInput" class="form-input" placeholder="Add a skill (e.g. AWS, Terraform)..." style="padding: 6px 12px; font-size: 0.85rem;">
+              <button class="btn btn-sm btn-primary" id="addSkillBtn">+ Add</button>
+            </div>
+          </div>
+
+          <!-- Bookmarked Roles Quick Widget -->
+          <div class="card" style="margin-bottom: 28px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+              <h3 style="font-size: 1.2rem;">⭐ Saved Roles</h3>
+              <a href="opportunities.html?saved=true" style="font-size: 0.85rem; font-weight: 600;">View All</a>
+            </div>
+
+            <div id="dashSavedGrid">
+              <!-- Rendered via JS -->
+            </div>
+          </div>
+
+          <!-- Resume Center Mockup Zone -->
+          <div class="card">
+            <h3 style="font-size: 1.2rem; margin-bottom: 8px;">📄 Resume Center & ATS Scanner</h3>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 16px;">
+              Upload your PDF resume to simulate an ATS compatibility score test.
+            </p>
+
+            <div class="resume-drop-zone" id="resumeDropZone">
+              <div class="upload-icon">📤</div>
+              <div style="font-weight: 700; font-size: 0.95rem; margin-bottom: 4px;">Click or Drag Resume PDF</div>
+              <div style="font-size: 0.8rem; color: var(--text-muted);">Supports PDF, DOCX (Max 5MB)</div>
+              
+              <input type="file" id="resumeFileInput" accept=".pdf,.docx" style="display: none;">
+              
+              <div id="resumeFileName" style="margin-top: 10px; font-size: 0.85rem; color: var(--accent-purple);"></div>
+              
+              <div class="progress-track">
+                <div class="progress-fill" id="resumeUploadProgress"></div>
+              </div>
+            </div>
+
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--border-color);">
+              <div>
+                <div style="font-size: 0.75rem; color: var(--text-muted); font-weight: 600; text-transform: uppercase;">Current ATS Score</div>
+                <div style="font-family: var(--font-heading); font-size: 1.4rem; font-weight: 800; color: var(--accent-purple);" id="atsScoreValue">85%</div>
+              </div>
+              <a href="resources.html" class="btn btn-sm btn-outline">Improve Resume Score</a>
+            </div>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="brand-logo" style="color:#FFF;">
+            <div class="brand-logo-icon">🎓</div>
+            <span>Campus<span class="brand-highlight">Career</span></span>
+          </a>
+          <p>The modern, colorful career platform designed for college students to discover internships, jobs, hackathons, and skill guides.</p>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Platform</h4>
+          <ul class="footer-links">
+            <li><a href="opportunities.html">All Opportunities</a></li>
+            <li><a href="opportunities.html?category=internships">Internships</a></li>
+            <li><a href="opportunities.html?category=jobs">Full-Time Jobs</a></li>
+            <li><a href="opportunities.html?category=hackathons">Hackathons</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Resources</h4>
+          <ul class="footer-links">
+            <li><a href="resources.html">Interview Guides</a></li>
+            <li><a href="resources.html">ATS Resume Tips</a></li>
+            <li><a href="resources.html#skillsExplorer">Skill Roadmaps</a></li>
+            <li><a href="dashboard.html">Student Dashboard</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">About</h4>
+          <ul class="footer-links">
+            <li><a href="about.html">Our Mission</a></li>
+            <li><a href="about.html#devops">DevOps Architecture</a></li>
+            <li><a href="about.html">Contact Support</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>Built for students, by students. © 2026 CampusCareer.</div>
+        <div class="devops-badge">
+          <span>⚙️ Containerized via Docker + Nginx</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/dashboard.js"></script>
+
+</body>
+</html>

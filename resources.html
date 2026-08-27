@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Career Resources & Skill Recommendations | CampusCareer</title>
+  <meta name="description" content="Prepare for campus placement drives, technical interviews, resume building, and explore recommended skill roadmaps for DevOps, Frontend, Data, and Software Engineering.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo" aria-label="CampusCareer Homepage">
+        <div class="brand-logo-icon">🎓</div>
+        <span>Campus<span class="brand-highlight">Career</span></span>
+      </a>
+
+      <nav class="nav-menu" id="navMenu" aria-label="Main Navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="opportunities.html" class="nav-link">Opportunities</a>
+        <a href="opportunities.html?category=internships" class="nav-link">Internships</a>
+        <a href="opportunities.html?category=jobs" class="nav-link">Jobs</a>
+        <a href="opportunities.html?category=hackathons" class="nav-link">Hackathons</a>
+        <a href="resources.html" class="nav-link active">Resources</a>
+        <a href="about.html" class="nav-link">About</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="opportunities.html?saved=true" class="btn btn-outline btn-sm" aria-label="Saved Bookmarks">
+          ⭐ Bookmarks <span class="saved-count-badge" id="savedCountBadge" style="display:none;">0</span>
+        </a>
+        <a href="dashboard.html" class="btn btn-primary btn-sm">
+          <span>Student Portal</span> ➔
+        </a>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle Navigation Menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Section 1: Skill Recommendation Explorer ("What should you learn next?") -->
+    <section class="section" id="skillsExplorer" style="background: radial-gradient(circle at 50% 0%, rgba(108, 92, 231, 0.08) 0%, transparent 60%);">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Career Path Navigator</span>
+          <h1 class="section-title">What should you learn next?</h1>
+          <p class="section-subtitle">Select a career track below to discover essential tools, skills, and learning priorities requested by top tech recruiters.</p>
+        </div>
+
+        <!-- Path Selector Buttons -->
+        <div style="display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-bottom: 36px;">
+          <button class="btn btn-primary path-tab-btn active" data-path="devops">⚙️ DevOps & Cloud Engineer</button>
+          <button class="btn btn-outline path-tab-btn" data-path="frontend">🎨 Frontend Web Developer</button>
+          <button class="btn btn-outline path-tab-btn" data-path="data">📊 Data Analyst & Python</button>
+          <button class="btn btn-outline path-tab-btn" data-path="fullstack">🚀 Fullstack Engineer</button>
+        </div>
+
+        <!-- Skill Recommendations Display Card -->
+        <div class="card" id="pathDisplayCard" style="background: #FFFFFF; padding: 36px;">
+          <!-- Dynamically populated via script -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: Career Preparation Guides Grid -->
+    <section class="section" style="background: #FFFFFF; border-y: 1px solid var(--border-color);">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Student Toolkit</span>
+          <h2 class="section-title">Career Preparation Guides</h2>
+          <p class="section-subtitle">Everything you need to excel in interviews, aptitude tests, GDs, and resume screenings.</p>
+        </div>
+
+        <div class="grid-2" id="resourcesGrid">
+          <!-- Rendered dynamically or via template below -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Upcoming Hackathons & Coding Contests -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Compete & Win</span>
+          <h2 class="section-title">Upcoming Hackathons & Contests</h2>
+          <p class="section-subtitle">Showcase your coding and design skills, build real projects, and win cash prizes.</p>
+        </div>
+
+        <div class="grid-2" id="hackathonsGrid">
+          <!-- Rendered dynamically -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="brand-logo" style="color:#FFF;">
+            <div class="brand-logo-icon">🎓</div>
+            <span>Campus<span class="brand-highlight">Career</span></span>
+          </a>
+          <p>The modern, colorful career platform designed for college students to discover internships, jobs, hackathons, and skill guides.</p>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Platform</h4>
+          <ul class="footer-links">
+            <li><a href="opportunities.html">All Opportunities</a></li>
+            <li><a href="opportunities.html?category=internships">Internships</a></li>
+            <li><a href="opportunities.html?category=jobs">Full-Time Jobs</a></li>
+            <li><a href="opportunities.html?category=hackathons">Hackathons</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Resources</h4>
+          <ul class="footer-links">
+            <li><a href="resources.html">Interview Guides</a></li>
+            <li><a href="resources.html">ATS Resume Tips</a></li>
+            <li><a href="resources.html#skillsExplorer">Skill Roadmaps</a></li>
+            <li><a href="dashboard.html">Student Dashboard</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">About</h4>
+          <ul class="footer-links">
+            <li><a href="about.html">Our Mission</a></li>
+            <li><a href="about.html#devops">DevOps Architecture</a></li>
+            <li><a href="about.html">Contact Support</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>Built for students, by students. © 2026 CampusCareer.</div>
+        <div class="devops-badge">
+          <span>⚙️ Containerized via Docker + Nginx</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      renderPathExplorer('devops');
+      renderResourcesList();
+      renderHackathonsList();
+
+      // Tab switcher
+      const tabBtns = document.querySelectorAll('.path-tab-btn');
+      tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          tabBtns.forEach(b => {
+            b.classList.remove('active', 'btn-primary');
+            b.classList.add('btn-outline');
+          });
+          btn.classList.add('active', 'btn-primary');
+          btn.classList.remove('btn-outline');
+          const pathKey = btn.getAttribute('data-path');
+          renderPathExplorer(pathKey);
+        });
+      });
+    });
+
+    function renderPathExplorer(pathKey) {
+      const card = document.getElementById('pathDisplayCard');
+      const data = CAMPUS_DATA.skillPaths[pathKey];
+      if (!card || !data) return;
+
+      card.innerHTML = `
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid var(--border-color); flex-wrap: wrap; gap: 12px;">
+          <div>
+            <span class="badge badge-type" style="margin-bottom: 6px;">Career Path</span>
+            <h2 style="font-size: 1.8rem; font-family: var(--font-heading);">${data.icon} ${data.title}</h2>
+          </div>
+          <div>
+            <div style="font-size: 0.8rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Target Roles</div>
+            <div style="display: flex; gap: 6px; margin-top: 4px;">
+              ${data.targetRoles.map(r => `<span class="badge badge-location">${r}</span>`).join('')}
+            </div>
+          </div>
+        </div>
+
+        <div class="grid-3" style="margin-bottom: 24px;">
+          ${data.skills.map(s => `
+            <div style="background: #F8F9FD; padding: 20px; border-radius: var(--radius-md); border-left: 4px solid ${s.color};">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                <h4 style="font-size: 1.05rem;">${s.name}</h4>
+                <span class="badge" style="background: rgba(0,0,0,0.06); color: var(--text-dark);">${s.level}</span>
+              </div>
+              <p style="font-size: 0.88rem; color: var(--text-body);">${s.desc}</p>
+            </div>
+          `).join('')}
+        </div>
+
+        <div style="background: var(--accent-purple-light); padding: 18px 24px; border-radius: var(--radius-md); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <span style="font-size: 1.4rem;">🎯</span>
+            <div>
+              <strong>Ready to test your skills?</strong>
+              <div style="font-size: 0.85rem; color: var(--text-body);">Explore open ${data.title} opportunities on CampusCareer.</div>
+            </div>
+          </div>
+          <a href="opportunities.html" class="btn btn-sm btn-primary">Find ${data.title} Roles ➔</a>
+        </div>
+      `;
+    }
+
+    function renderResourcesList() {
+      const container = document.getElementById('resourcesGrid');
+      if (!container) return;
+
+      container.innerHTML = CAMPUS_DATA.resources.map(res => `
+        <article class="card reveal-on-scroll">
+          <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 16px;">
+            <div style="width: 52px; height: 52px; border-radius: 16px; background: rgba(108, 92, 231, 0.1); display: flex; align-items: center; justify-content: center; font-size: 1.6rem; color: ${res.color};">
+              ${res.icon}
+            </div>
+            <div>
+              <span class="badge" style="background: rgba(0,0,0,0.06); color: var(--text-dark);">${res.category}</span>
+              <h3 style="font-size: 1.2rem; margin-top: 4px;">${res.title}</h3>
+            </div>
+          </div>
+          <p style="color: var(--text-body); font-size: 0.92rem; margin-bottom: 16px;">${res.summary}</p>
+          <ul class="modal-list" style="margin-bottom: 20px; font-size: 0.88rem;">
+            ${res.bulletPoints.map(b => `<li>${b}</li>`).join('')}
+          </ul>
+          <button class="btn btn-sm btn-outline" onclick="window.showToast('Guide downloaded! Check your downloads.', 'success')">
+            📥 Read & Download Guide PDF
+          </button>
+        </article>
+      `).join('');
+    }
+
+    function renderHackathonsList() {
+      const container = document.getElementById('hackathonsGrid');
+      if (!container) return;
+
+      container.innerHTML = CAMPUS_DATA.hackathons.map(hack => `
+        <article class="hackathon-card card reveal-on-scroll">
+          <span class="hack-prize-badge">🏆 Prize: ${hack.prizePool}</span>
+          <div>
+            <span class="badge badge-type" style="margin-bottom: 8px;">${hack.mode} Hackathon</span>
+            <h3 style="font-size: 1.3rem; margin-bottom: 6px;">${hack.name}</h3>
+            <div style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 14px;">
+              Organized by: <strong>${hack.organizer}</strong> • Date: <strong>${hack.date}</strong>
+            </div>
+            <p style="font-size: 0.9rem; color: var(--text-body); margin-bottom: 18px;">${hack.description}</p>
+            <div class="card-skills" style="margin-bottom: 20px;">
+              ${hack.tags.map(t => `<span class="skill-tag">${t}</span>`).join('')}
+            </div>
+          </div>
+          <div style="display: flex; align-items: center; justify-content: space-between; padding-top: 14px; border-top: 1px solid var(--border-color);">
+            <div style="font-size: 0.8rem; color: var(--text-muted);">Deadline: <strong>${hack.deadline}</strong></div>
+            <button class="btn btn-sm btn-primary" onclick="window.showToast('Registration submitted for ${hack.name}!', 'success')">
+              Register Team 🚀
+            </button>
+          </div>
+        </article>
+      `).join('');
+    }
+  </script>
+</body>
+</html>

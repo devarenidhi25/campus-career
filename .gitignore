@@ -1,0 +1,17 @@
+# OS Generated Files
+.DS_Store
+Thumbs.db
+
+# IDE & Editor Directories
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Log Files
+*.log
+npm-debug.log*
+
+# Local Scratch Files
+scratch/
+temp/

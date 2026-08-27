@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CampusCareer | Student Internships, Jobs, Hackathons & Career Resources</title>
+  <meta name="description" content="CampusCareer is the ultimate modern career platform for college students. Discover internships, jobs, hackathons, and career guidance.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+
+  <!-- Header / Navbar -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo" aria-label="CampusCareer Homepage">
+        <div class="brand-logo-icon">🎓</div>
+        <span>Campus<span class="brand-highlight">Career</span></span>
+      </a>
+
+      <nav class="nav-menu" id="navMenu" aria-label="Main Navigation">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="opportunities.html" class="nav-link">Opportunities</a>
+        <a href="opportunities.html?category=internships" class="nav-link">Internships</a>
+        <a href="opportunities.html?category=jobs" class="nav-link">Jobs</a>
+        <a href="opportunities.html?category=hackathons" class="nav-link">Hackathons</a>
+        <a href="resources.html" class="nav-link">Resources</a>
+        <a href="about.html" class="nav-link">About</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="opportunities.html?saved=true" class="btn btn-outline btn-sm" aria-label="Saved Bookmarks">
+          ⭐ Bookmarks <span class="saved-count-badge" id="savedCountBadge" style="display:none;">0</span>
+        </a>
+        <a href="dashboard.html" class="btn btn-primary btn-sm">
+          <span>Student Portal</span> ➔
+        </a>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle Navigation Menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-content">
+            <div class="hero-badge">
+              <span class="hero-badge-sparkle">✨</span> #1 College Career Platform
+            </div>
+
+            <h1 class="hero-title">
+              Find opportunities.<br>
+              <span class="gradient-text">Build your future.</span>
+            </h1>
+
+            <p class="hero-subtext">
+              Internships, full-time jobs, hackathons, campus drives, and career guidance — curated specifically for college students.
+            </p>
+
+            <!-- Search Box -->
+            <form action="opportunities.html" method="GET" class="hero-search-box" role="search">
+              <div class="search-input-wrapper">
+                <span class="search-icon">🔍</span>
+                <input type="text" name="search" class="hero-search-input" placeholder="Search roles, skills, or companies (e.g. Python, Docker, Frontend)..." aria-label="Search opportunities">
+              </div>
+
+              <select name="category" class="search-select" aria-label="Select opportunity category">
+                <option value="all">All Categories</option>
+                <option value="internships">Internships</option>
+                <option value="jobs">Full-Time Jobs</option>
+                <option value="hackathons">Hackathons</option>
+                <option value="freelancing">Freelance Gigs</option>
+              </select>
+
+              <button type="submit" class="btn btn-primary">
+                Search Opportunities
+              </button>
+            </form>
+
+            <div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap;">
+              <a href="opportunities.html" class="btn btn-secondary">Explore All Roles</a>
+              <a href="resources.html" class="btn btn-outline">Skill Recommendations</a>
+            </div>
+          </div>
+
+          <!-- Hero Illustration with Floating Widgets -->
+          <div class="hero-visual-wrapper">
+            <!-- Floating Widget 1: Grad Cap -->
+            <div class="floating-element float-1">
+              <div class="float-icon" style="background: rgba(108, 92, 231, 0.15); color: #6C5CE7;">🎓</div>
+              <div>
+                <div style="font-weight:700;">College Placements</div>
+                <div style="font-size:0.75rem; color:var(--text-muted);">2026-2027 Batches</div>
+              </div>
+            </div>
+
+            <!-- Floating Widget 2: Notification -->
+            <div class="floating-element float-2">
+              <div class="float-icon" style="background: rgba(0, 184, 148, 0.15); color: #00B894;">🚀</div>
+              <div>
+                <div style="font-weight:700;">NovaLabs AI</div>
+                <div style="font-size:0.75rem; color:var(--accent-green);">Shortlisted for Interview!</div>
+              </div>
+            </div>
+
+            <!-- Floating Widget 3: Resume Badge -->
+            <div class="floating-element float-3">
+              <div class="float-icon" style="background: rgba(253, 121, 168, 0.15); color: #FD79A8;">📄</div>
+              <div>
+                <div style="font-weight:700;">ATS Resume Score</div>
+                <div style="font-size:0.75rem; color:var(--accent-pink);">92% Rating</div>
+              </div>
+            </div>
+
+            <!-- Main SVG Student Illustration -->
+            <svg class="hero-main-illustration" viewBox="0 0 500 450" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Student working on laptop for career growth">
+              <!-- Backdrop Decorative Circle -->
+              <circle cx="250" cy="225" r="180" fill="url(#heroGrad)" opacity="0.15"/>
+              
+              <!-- Laptop -->
+              <rect x="130" y="240" width="240" height="150" rx="14" fill="#1E293B"/>
+              <rect x="140" y="250" width="220" height="130" rx="8" fill="#0F172A"/>
+              <!-- Code Lines on Screen -->
+              <rect x="160" y="270" width="80" height="8" rx="4" fill="#6C5CE7"/>
+              <rect x="160" y="286" width="130" height="8" rx="4" fill="#00CEC9"/>
+              <rect x="160" y="302" width="100" height="8" rx="4" fill="#FD79A8"/>
+              <rect x="160" y="318" width="150" height="8" rx="4" fill="#00B894"/>
+              <rect x="160" y="334" width="70" height="8" rx="4" fill="#FDCB6E"/>
+              
+              <!-- Laptop Base -->
+              <path d="M100 390 L400 390 C410 390 415 395 410 405 L380 415 C375 418 125 418 120 415 L90 405 C85 395 90 390 100 390 Z" fill="#334155"/>
+              <rect x="210" y="392" width="80" height="6" rx="3" fill="#64748B"/>
+
+              <!-- Student Figure -->
+              <circle cx="250" cy="130" r="45" fill="#FFDFD3"/> <!-- Head -->
+              <path d="M220 120 C220 90 280 90 280 120 C280 95 240 85 220 120 Z" fill="#2D3436"/> <!-- Hair -->
+              <path d="M200 210 Q250 180 300 210 L320 250 L180 250 Z" fill="#6C5CE7"/> <!-- Jacket -->
+              <!-- Glasses -->
+              <circle cx="238" cy="128" r="10" stroke="#2D3436" stroke-width="3" fill="none"/>
+              <circle cx="262" cy="128" r="10" stroke="#2D3436" stroke-width="3" fill="none"/>
+              <line x1="248" y1="128" x2="252" y2="128" stroke="#2D3436" stroke-width="3"/>
+              
+              <defs>
+                <linearGradient id="heroGrad" x1="0" y1="0" x2="500" y2="450" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#6C5CE7"/>
+                  <stop offset="1" stop-color="#FD79A8"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Animated Statistics Section -->
+    <section class="stats-section">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat-item">
+            <div class="stat-number" data-target="520">0</div>
+            <div class="stat-label">Total Opportunities</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number" data-target="145">0</div>
+            <div class="stat-label">Active Internships</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number" data-target="88">0</div>
+            <div class="stat-label">Partner Companies</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number" data-target="32">0</div>
+            <div class="stat-label">Hackathons & Contests</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Opportunity Categories Section -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Explore Domains</span>
+          <h2 class="section-title">Opportunity Categories</h2>
+          <p class="section-subtitle">Whether you are looking for a paid summer internship, campus drive, or freelance gig — we've got you covered.</p>
+        </div>
+
+        <div class="grid-4" id="categoriesContainer">
+          <!-- Dynamic cards rendered or static fallback -->
+          <a href="opportunities.html?category=internships" class="category-card reveal-on-scroll">
+            <div class="category-card-top">
+              <div class="category-icon-box" style="background: rgba(108, 92, 231, 0.12); color: #6C5CE7;">⚡</div>
+              <span class="badge badge-type">145+ Roles</span>
+            </div>
+            <div>
+              <h3 class="category-title">Internships</h3>
+              <p class="category-desc">Paid summer & winter internships with top tech startups and global MNCs.</p>
+            </div>
+            <div class="category-link-text" style="color: #6C5CE7;">Browse Internships ➔</div>
+          </a>
+
+          <a href="opportunities.html?category=jobs" class="category-card reveal-on-scroll">
+            <div class="category-card-top">
+              <div class="category-icon-box" style="background: rgba(9, 132, 227, 0.12); color: #0984E3;">💼</div>
+              <span class="badge" style="background: rgba(9, 132, 227, 0.12); color: #0984E3;">90+ Open</span>
+            </div>
+            <div>
+              <h3 class="category-title">Full-Time Jobs</h3>
+              <p class="category-desc">Graduate engineer roles and entry-level positions for final year students.</p>
+            </div>
+            <div class="category-link-text" style="color: #0984E3;">Explore Jobs ➔</div>
+          </a>
+
+          <a href="opportunities.html?category=hackathons" class="category-card reveal-on-scroll">
+            <div class="category-card-top">
+              <div class="category-icon-box" style="background: rgba(253, 121, 168, 0.12); color: #FD79A8;">🚀</div>
+              <span class="badge" style="background: rgba(253, 121, 168, 0.12); color: #FD79A8;">₹15L+ Cash</span>
+            </div>
+            <div>
+              <h3 class="category-title">Hackathons</h3>
+              <p class="category-desc">National & global coding hackathons, DevOps sprints, and prize contests.</p>
+            </div>
+            <div class="category-link-text" style="color: #FD79A8;">Join Hackathons ➔</div>
+          </a>
+
+          <a href="opportunities.html?category=placements" class="category-card reveal-on-scroll">
+            <div class="category-card-top">
+              <div class="category-icon-box" style="background: rgba(0, 184, 148, 0.12); color: #00B894;">🎓</div>
+              <span class="badge" style="background: rgba(0, 184, 148, 0.12); color: #00B894;">Campus Drives</span>
+            </div>
+            <div>
+              <h3 class="category-title">Placement Drives</h3>
+              <p class="category-desc">On-campus and off-campus recruitment drives curated for college grads.</p>
+            </div>
+            <div class="category-link-text" style="color: #00B894;">View Placements ➔</div>
+          </a>
+
+          <a href="opportunities.html?category=freelancing" class="category-card reveal-on-scroll">
+            <div class="category-card-top">
+              <div class="category-icon-box" style="background: rgba(225, 112, 85, 0.12); color: #E17055;">💻</div>
+              <span class="badge" style="background: rgba(225, 112, 85, 0.12); color: #E17055;">Flexible</span>
+            </div>
+            <div>
+              <h3 class="category-title">Freelance Gigs</h3>
+              <p class="category-desc">Short-term project contracts for web developers, UI designers, and writers.</p>
+            </div>
+            <div class="category-link-text" style="color: #E17055;">Find Gigs ➔</div>
+          </a>
+
+          <a href="opportunities.html?category=part-time" class="category-card reveal-on-scroll">
+            <div class="category-card-top">
+              <div class="category-icon-box" style="background: rgba(253, 203, 110, 0.2); color: #D69E2E;">⏰</div>
+              <span class="badge" style="background: rgba(253, 203, 110, 0.2); color: #D69E2E;">10-15 hrs/wk</span>
+            </div>
+            <div>
+              <h3 class="category-title">Part-Time Roles</h3>
+              <p class="category-desc">Roles with flexible schedules designed around college classes and exams.</p>
+            </div>
+            <div class="category-link-text" style="color: #D69E2E;">View Part-Time ➔</div>
+          </a>
+
+          <a href="opportunities.html?category=campus" class="category-card reveal-on-scroll">
+            <div class="category-card-top">
+              <div class="category-icon-box" style="background: rgba(162, 155, 254, 0.2); color: #6C5CE7;">🌟</div>
+              <span class="badge" style="background: rgba(162, 155, 254, 0.2); color: #6C5CE7;">Leadership</span>
+            </div>
+            <div>
+              <h3 class="category-title">Campus Ambassador</h3>
+              <p class="category-desc">Represent top tech brands on your campus and gain event management skills.</p>
+            </div>
+            <div class="category-link-text" style="color: #6C5CE7;">Apply Ambassador ➔</div>
+          </a>
+
+          <a href="resources.html" class="category-card reveal-on-scroll">
+            <div class="category-card-top">
+              <div class="category-icon-box" style="background: rgba(0, 206, 201, 0.12); color: #00CEC9;">📅</div>
+              <span class="badge" style="background: rgba(0, 206, 201, 0.12); color: #00CEC9;">Free Resources</span>
+            </div>
+            <div>
+              <h3 class="category-title">Career Preparation</h3>
+              <p class="category-desc">Interview roadmaps, ATS resume guides, coding prep, and skill suggestions.</p>
+            </div>
+            <div class="category-link-text" style="color: #00CEC9;">Explore Resources ➔</div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Opportunities Preview Section -->
+    <section class="section" style="background: #FFFFFF; border-y: 1px solid var(--border-color);">
+      <div class="container">
+        <div class="section-header" style="display: flex; justify-content: space-between; align-items: flex-end; text-align: left; max-width: 100%;">
+          <div>
+            <span class="section-tag">Handpicked for Students</span>
+            <h2 class="section-title">Featured Opportunities</h2>
+          </div>
+          <a href="opportunities.html" class="btn btn-outline">View All 12+ Opportunities ➔</a>
+        </div>
+
+        <div class="grid-3" id="opportunitiesGrid">
+          <!-- Populated dynamically via JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Skill Recommendation Explorer Teaser -->
+    <section class="section">
+      <div class="container">
+        <div class="card" style="background: var(--grad-hero); color: #FFFFFF; padding: 48px; border: none; overflow: visible;">
+          <div class="grid-2" style="align-items: center;">
+            <div>
+              <span class="badge" style="background: rgba(255,255,255,0.2); color: #FFF; margin-bottom: 12px;">What should you learn next?</span>
+              <h2 style="font-size: 2.2rem; color: #FFF; margin-bottom: 14px;">Tailored Skill Recommendations</h2>
+              <p style="opacity: 0.9; margin-bottom: 24px; font-size: 1.05rem;">
+                Select your desired career path (DevOps, Frontend, Data Science, or Fullstack) and unlock guided skill roadmaps.
+              </p>
+              <a href="resources.html#skillsExplorer" class="btn btn-secondary btn-lg">
+                Explore Skill Roadmaps ➔
+              </a>
+            </div>
+            <div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
+              <span class="badge badge-type" style="background:#FFF; color:#6C5CE7; font-size: 0.95rem; padding: 8px 18px;">🐳 Docker</span>
+              <span class="badge badge-type" style="background:#FFF; color:#0984E3; font-size: 0.95rem; padding: 8px 18px;">⚡ JavaScript</span>
+              <span class="badge badge-type" style="background:#FFF; color:#00B894; font-size: 0.95rem; padding: 8px 18px;">🐍 Python</span>
+              <span class="badge badge-type" style="background:#FFF; color:#FD79A8; font-size: 0.95rem; padding: 8px 18px;">🛠️ Terraform</span>
+              <span class="badge badge-type" style="background:#FFF; color:#E17055; font-size: 0.95rem; padding: 8px 18px;">⚙️ Ansible</span>
+              <span class="badge badge-type" style="background:#FFF; color:#00CEC9; font-size: 0.95rem; padding: 8px 18px;">🌐 Nginx</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Details Modal -->
+  <div class="modal-overlay" id="detailsModal">
+    <div class="modal-container">
+      <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close modal">✕</button>
+      <div id="modalContent">
+        <!-- Content inserted dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="brand-logo" style="color:#FFF;">
+            <div class="brand-logo-icon">🎓</div>
+            <span>Campus<span class="brand-highlight">Career</span></span>
+          </a>
+          <p>The modern, colorful career platform designed for college students to discover internships, jobs, hackathons, and skill guides.</p>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Platform</h4>
+          <ul class="footer-links">
+            <li><a href="opportunities.html">All Opportunities</a></li>
+            <li><a href="opportunities.html?category=internships">Internships</a></li>
+            <li><a href="opportunities.html?category=jobs">Full-Time Jobs</a></li>
+            <li><a href="opportunities.html?category=hackathons">Hackathons</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Resources</h4>
+          <ul class="footer-links">
+            <li><a href="resources.html">Interview Guides</a></li>
+            <li><a href="resources.html">ATS Resume Tips</a></li>
+            <li><a href="resources.html#skillsExplorer">Skill Roadmaps</a></li>
+            <li><a href="dashboard.html">Student Dashboard</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">About</h4>
+          <ul class="footer-links">
+            <li><a href="about.html">Our Mission</a></li>
+            <li><a href="about.html#devops">DevOps Architecture</a></li>
+            <li><a href="about.html">Contact Support</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>Built for students, by students. © 2026 CampusCareer.</div>
+        <div class="devops-badge">
+          <span>⚙️ Containerized via Docker + Nginx</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/opportunities.js"></script>
+
+</body>
+</html>
