@@ -8,7 +8,7 @@ The project is designed as a **100% static frontend application** exclusively bu
 
 ## 🚀 Key Features
 
-- **Gen-Z Startup Aesthetic**: Clean light backgrounds, high-contrast dark typography, vibrant visual accents (violet, pink, blue, yellow, orange), soft gradients, subtle glassmorphism, floating decorative elements, and smooth micro-interactions.
+- **Clean Aesthetic**: Clean light backgrounds, high-contrast dark typography, vibrant visual accents (violet, pink, blue, yellow, orange), soft gradients, subtle glassmorphism, floating decorative elements, and smooth micro-interactions.
 - **Dynamic Search & Multi-Faceted Filtering**: Real-time searching by title, company, description, or skill tags. Filter simultaneously by role category, work mode (Remote/Hybrid/Onsite), location, and skill tags without page refresh.
 - **Sorting & Bookmarking**: Sort opportunities by newest, stipend amount (High to Low), or apply deadline. Bookmark roles with persistent `localStorage` support across page refreshes.
 - **Detailed Opportunity Modal**: Interactive popup showing full job descriptions, key responsibilities, eligibility criteria, required skills, and direct apply CTAs.
@@ -19,7 +19,7 @@ The project is designed as a **100% static frontend application** exclusively bu
 
 ---
 
-## 📂 Project Structure
+<!-- ## 📂 Project Structure
 
 ```
 CampusCareer/
@@ -47,7 +47,7 @@ CampusCareer/
 └── README.md             # Complete documentation & DevOps deployment guide
 ```
 
----
+--- -->
 
 ## 💻 How to Run Locally
 
@@ -67,7 +67,7 @@ Since CampusCareer is built entirely with pure HTML, CSS, and Vanilla JavaScript
 
 ---
 
-## ⚙️ DevOps Deployment Guide
+<!-- ## ⚙️ DevOps Deployment Guide
 
 This project matches the college DevOps academic requirement of demonstrating automated cloud infrastructure provisioning, configuration management, and containerization.
 
@@ -196,7 +196,7 @@ Run Ansible playbook:
 ansible-playbook -i inventory.ini playbook.yml
 ```
 
----
+--- -->
 
 ## 🔒 Confirmation of Technology Stack Constraints
 
