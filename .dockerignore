@@ -1,0 +1,16 @@
+# Keep only the website in the Docker image.
+# Infrastructure code, tests, secrets and git history must never be served.
+.git
+.github
+.gitignore
+.dockerignore
+terraform/
+ansible/
+tests/
+docs/
+README.md
+*.pem
+*.csv
+*.tfstate
+*.tfstate.*
+.terraform/
