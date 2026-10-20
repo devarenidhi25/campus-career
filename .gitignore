@@ -15,8 +15,14 @@ npm-debug.log*
 # Local Scratch Files
 scratch/
 temp/
-terraform/.terraform/*.pem
+
+# Secrets - never commit
+*.pem
+*.csv
+.env
+
+# Terraform local files
 .terraform/
 *.tfstate
 *.tfstate.*
-*.csv
+crash.log

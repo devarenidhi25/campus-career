@@ -1,0 +1,74 @@
+name: CI - Build & Test
+
+# Runs on every push to any branch and on every pull request into main
+on:
+  push:
+  pull_request:
+    branches: [main]
+
+jobs:
+  # ---------------------------------------------------------------
+  # Stage 1: TEST the source code (no Docker yet)
+  # ---------------------------------------------------------------
+  test:
+    name: Lint & Test Source
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Check JavaScript syntax
+        run: for f in js/*.js; do node --check "$f" && echo "OK $f"; done
+
+      - name: Lint HTML (HTMLHint)
+        run: npx --yes htmlhint@1 "*.html"
+
+      - name: Check pages and local links
+        run: python3 tests/check_site.py
+
+      - name: Lint Dockerfile (Hadolint)
+        uses: hadolint/hadolint-action@v3.1.0
+        with:
+          dockerfile: Dockerfile
+          failure-threshold: error
+
+  # ---------------------------------------------------------------
+  # Stage 2: BUILD the Docker image and TEST the running container
+  # ---------------------------------------------------------------
+  build:
+    name: Docker Build & Smoke Test
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Build Docker image
+        run: docker build -t campuscareer:${{ github.sha }} .
+
+      - name: Run container
+        run: docker run -d --name campuscareer-test -p 8080:80 campuscareer:${{ github.sha }}
+
+      - name: Wait for Nginx to start
+        run: |
+          for i in $(seq 1 10); do
+            curl -s -o /dev/null http://localhost:8080 && exit 0
+            sleep 1
+          done
+          echo "Container did not start" && exit 1
+
+      - name: Smoke test the website
+        run: bash tests/smoke_test.sh http://localhost:8080
+
+      - name: Show container logs (if anything failed)
+        if: failure()
+        run: docker logs campuscareer-test
+
+      - name: Stop container
+        if: always()
+        run: docker rm -f campuscareer-test
