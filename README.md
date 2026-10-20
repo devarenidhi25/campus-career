@@ -1,4 +1,4 @@
-# CampusCareer 🎓 - Student Career Platform
+# CampusCareer - Student Career Platform
 
 ![CI - Build & Test](https://github.com/devarenidhi25/campus-career/actions/workflows/ci.yml/badge.svg)
 
@@ -6,7 +6,7 @@ CampusCareer is a career platform for college students to discover internships, 
 
 ---
 
-## 📌 Problem Statement
+## Problem Statement
 
 College students hunt for internships, jobs and hackathons across many scattered sources: WhatsApp groups, college notice boards, company career pages and job portals. Deadlines get missed, opportunities are hard to filter by skill or work mode, and students don't know which skills to build next.
 
@@ -26,7 +26,7 @@ Even a simple website has a delivery problem when a team builds it:
 
 ---
 
-## 🏗️ Architecture & Pipeline
+## Architecture & Pipeline
 
 ```
  Developer ──push──▶ GitHub ──▶ GitHub Actions CI
@@ -54,7 +54,7 @@ Even a simple website has a delivery problem when a team builds it:
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 campus-career/
@@ -82,7 +82,7 @@ campus-career/
 
 ---
 
-## 🚀 Key Features (Application)
+## Key Features (Application)
 
 - **Search & filters** – keyword search; filter by type, work mode, location and skills; sort by newest, stipend or deadline
 - **Bookmarks** – saved with browser `localStorage`
@@ -93,7 +93,7 @@ campus-career/
 
 ---
 
-## 💻 How to Run
+## How to Run
 
 ### 1. Locally (no tools needed)
 Open `index.html` in a browser, or:
@@ -137,7 +137,7 @@ Open `http://<EC2_PUBLIC_IP>`. To remove all AWS resources: `terraform destroy`.
 
 ---
 
-## 🔁 Continuous Integration
+## Continuous Integration
 
 `.github/workflows/ci.yml` runs on every push and on every pull request to `main`:
 
@@ -153,7 +153,7 @@ Stage 2 runs only if stage 1 passes. Results are visible in the repository's **A
 
 ---
 
-## 🔒 Security
+## Security
 
 - AWS access keys and `.pem` private keys are **never** committed (`.gitignore`)
 - Terraform state files are excluded (they can contain sensitive data)
@@ -162,7 +162,7 @@ Stage 2 runs only if stage 1 passes. Results are visible in the repository's **A
 
 ---
 
-## 👥 Team
+## Team
 
 | Member | Responsibility |
 |---|---|
