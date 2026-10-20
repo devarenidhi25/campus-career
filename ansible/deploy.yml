@@ -1,0 +1,88 @@
+---
+- name: Configure EC2 and deploy CampusCareer with Docker
+  hosts: web
+  become: true
+
+  vars:
+    project_root: "{{ playbook_dir }}/.."
+    app_dir: /home/ubuntu/campuscareer
+    image_name: campuscareer:v1
+    container_name: campuscareer-app
+    app_files:
+      - index.html
+      - opportunities.html
+      - dashboard.html
+      - resources.html
+      - about.html
+      - css
+      - js
+      - Dockerfile
+      - nginx.conf
+
+  tasks:
+    - name: Update apt package cache
+      ansible.builtin.apt:
+        update_cache: true
+        cache_valid_time: 3600
+
+    - name: Install Docker
+      ansible.builtin.apt:
+        name: docker.io
+        state: present
+
+    - name: Start and enable Docker service
+      ansible.builtin.service:
+        name: docker
+        state: started
+        enabled: true
+
+    - name: Add ubuntu user to docker group
+      ansible.builtin.user:
+        name: ubuntu
+        groups: docker
+        append: true
+
+    - name: Create application directory on server
+      ansible.builtin.file:
+        path: "{{ app_dir }}"
+        state: directory
+        owner: ubuntu
+        group: ubuntu
+        mode: "0755"
+
+    - name: Copy CampusCareer website files to server
+      ansible.builtin.copy:
+        src: "{{ project_root }}/{{ item }}"
+        dest: "{{ app_dir }}/"
+        owner: ubuntu
+        group: ubuntu
+      loop: "{{ app_files }}"
+
+    - name: Build Docker image
+      ansible.builtin.command: docker build -t {{ image_name }} {{ app_dir }}
+
+    - name: Remove old container (if it exists)
+      ansible.builtin.command: docker rm -f {{ container_name }}
+      failed_when: false
+      changed_when: false
+
+    - name: Run CampusCareer container on port 80
+      ansible.builtin.command: >
+        docker run -d
+        --name {{ container_name }}
+        --restart unless-stopped
+        -p 80:80
+        {{ image_name }}
+
+    - name: Check that the website responds
+      ansible.builtin.uri:
+        url: http://localhost
+        status_code: 200
+      register: site_check
+      retries: 5
+      delay: 3
+      until: site_check.status == 200
+
+    - name: Show website URL
+      ansible.builtin.debug:
+        msg: "CampusCareer is live at http://{{ ansible_host }}"

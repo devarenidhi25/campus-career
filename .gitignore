@@ -15,4 +15,8 @@ npm-debug.log*
 # Local Scratch Files
 scratch/
 temp/
-terraform/.terraform/
+terraform/.terraform/*.pem
+.terraform/
+*.tfstate
+*.tfstate.*
+*.csv
